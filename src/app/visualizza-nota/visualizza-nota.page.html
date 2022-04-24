@@ -1,0 +1,26 @@
+<div class="ion-page" id="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button (click)="close()" *ngIf="isModal">
+          <ion-icon slot="icon-only" name="close"></ion-icon>
+        </ion-button>
+        <ion-back-button defaultHref="/note" *ngIf="!isModal"></ion-back-button>
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    <ion-title>Visualizza Nota</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+  
+    <ion-card-header>
+      <ion-card-title class='text'>{{titolo}}</ion-card-title>
+    <div class="note-date">{{data}}</div>
+    </ion-card-header>
+    <ion-card-content class='text'>{{content}}</ion-card-content>
+  </ion-card>
+
+
+</ion-content>

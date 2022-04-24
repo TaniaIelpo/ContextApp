@@ -1,20 +1,37 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
+<ion-header>
+<ion-toolbar color="dark">
+  <ion-buttons slot="primary">
+    <ion-button (click)="search()">
+      <ion-icon slot="icon-only" name="search-outline"></ion-icon>
+    </ion-button>
+    <ion-button (click)="aggiungiContesto()" >
+          <ion-icon slot="icon-only" name="add-outline" ></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-title>Contesti</ion-title>
+</ion-toolbar>
 </ion-header>
+<ion-content class='ion-padding'>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-list #lista>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    
+    <ion-item-sliding *ngFor="let item of context">
+      <ion-item expand="full" href="/nuovo-progetto" (click)="vai(item)" >
+        {{item}}
+      </ion-item>
+
+      <ion-item-options side='end'>
+        <ion-item-option color="danger"(click)="removeItem(item)">
+          <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    
+    </ion-item-sliding>
+  </ion-list>
 </ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-button expand="block" (click)="ricerca()">ESEGUI RICERCA PER CONTESTO</ion-button>
+  </ion-toolbar>
+</ion-footer>

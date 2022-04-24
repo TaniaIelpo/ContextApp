@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Aggiungi Note</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="saveNote()">
+   <ion-item>
+      <ion-label>Data: {{data}}</ion-label>
+      <!--<ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="note.date" name="date"></ion-datetime>-->
+    </ion-item>
+    <ion-item>
+      <ion-label>Titolo</ion-label>
+      <ion-input type="text" [(ngModel)]="note .title" name="title" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Note</ion-label>
+      <ion-textarea type="text" [(ngModel)]="note.content" name="content"></ion-textarea>
+     </ion-item>
+    
+    <ion-button expand="block" type="submit">Salva</ion-button>
+  </form>
+
+</ion-content>

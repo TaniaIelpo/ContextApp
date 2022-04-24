@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+    <ion-button (click)="close()" *ngIf="isModal">
+      <ion-icon slot="icon-only" name="close"></ion-icon>
+    </ion-button>
+    <ion-back-button defaultHref="/" *ngIf="!isModal"></ion-back-button>
+    <ion-menu-button></ion-menu-button>
+  </ion-buttons>
+    <ion-title>Ricerca contesto</ion-title>
+  </ion-toolbar>
+</ion-header> 
+
+<ion-content>
+  
+  <ion-input (ionChange)="inputChanged($event)" type="text" placeholder="Search for Context"></ion-input>
+    <ion-list [hidden]="items.length<=0">
+      <ion-item  *ngFor="let item of items" href="/nuovo-progetto" (click)="vai(item)">
+        {{item}}
+
+      </ion-item>
+    </ion-list>
+</ion-content>

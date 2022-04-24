@@ -1,0 +1,46 @@
+<div class="ion-page" id="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button (click)="close()" *ngIf="isModal">
+          <ion-icon slot="icon-only" name="close"></ion-icon>
+        </ion-button>
+        <ion-back-button defaultHref="/ricerca" *ngIf="!isModal"></ion-back-button>
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    <ion-title>Risultato Ricerca per Contesto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item-group>
+    
+    <ion-item-divider color="light">Documenti</ion-item-divider>
+      <ion-list>
+        <li class="item">
+          <ion-item *ngFor="let doc of Documenti" (click)="itemSelected(doc.titolo,'Documenti')">
+            {{doc.titolo}}
+          </ion-item>
+        </li>
+      </ion-list>
+
+      <ion-item-divider color="light">Web Pages</ion-item-divider>
+      <ion-list>
+        <li class="item">
+          <ion-item *ngFor="let page of WebPages" (click)="itemSelected(page.indirizzo, 'WebPages')">
+            {{page.titolo}}
+          </ion-item>
+        </li>
+      </ion-list>
+
+      <ion-item-divider color="light">Note</ion-item-divider>
+      <ion-list>
+        <li class="item">
+          <ion-item *ngFor="let note of Notes" (click)="noteSelected(note.createDate)">
+            {{note.title}}
+          </ion-item>
+        </li>
+      </ion-list>
+  </ion-item-group>
+
+</ion-content>

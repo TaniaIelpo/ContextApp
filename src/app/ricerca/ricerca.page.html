@@ -1,0 +1,25 @@
+<div class="ion-page" id="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button (click)="close()" *ngIf="isModal">
+          <ion-icon slot="icon-only" name="close"></ion-icon>
+        </ion-button>
+        <ion-back-button defaultHref="/" *ngIf="!isModal"></ion-back-button>
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    <ion-title>Ricerca per contesto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+      <ion-item *ngFor="let prog of check">
+        <ion-label>{{prog.name}}</ion-label>
+        <ion-checkbox [(ngModel)]="prog.checked">
+        </ion-checkbox>
+      </ion-item>
+    <ion-button expand="block" (click)="makeChoise(prog)">CERCA</ion-button>
+  </ion-list>
+
+</ion-content>
